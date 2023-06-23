@@ -1,0 +1,264 @@
+name: Sync README
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+jobs:
+  run-it:
+    runs-on: ubuntu-latest
+    name: Sync README
+    steps:
+
+      - name: Checkout codes
+        uses: actions/checkout@v2
+
+      - name: Install rclone
+        run: |
+          curl https://rclone.org/install.sh | sudo bash
+          mkdir -p ~/.config/rclone/
+          wget ${{ secrets.RCCF }} -P ~/.config/rclone/
+          
+      - name: Sync readme-1
+        run: |
+          rclone delete pub-1:README.md
+          rclone copy README.md pub-1:
+          rclone delete pub-1:rep/README.md
+          rclone copy README.md pub-1:rep
+          rclone delete ani-1:README.md
+          rclone copy README.md ani-1:
+          rclone delete ani-1:ani/README.md
+          rclone copy README.md ani-1:ani
+          rclone delete mov-1:README.md
+          rclone copy README.md mov-1:
+          rclone delete mov-1:mov/README.md
+          rclone copy README.md mov-1:mov
+          rclone delete doc-1:README.md
+          rclone copy README.md doc-1:
+          rclone delete doc-1:doc/README.md
+          rclone copy README.md doc-1:doc
+          rclone delete tlv1-1:README.md
+          rclone copy README.md tlv1-1:
+          rclone delete tlv1-1:tlv/README.md
+          rclone copy README.md tlv1-1:tlv
+          rclone delete tlv2-1:README.md
+          rclone copy README.md tlv2-1:
+          rclone delete tlv2-1:tlv/README.md
+          rclone copy README.md tlv2-1:tlv
+          rclone delete 4k1-1:README.md
+          rclone copy README.md 4k1-1:
+          rclone delete 4k1-1:4k/README.md
+          rclone copy README.md 4k1-1:4k
+          rclone delete 4k2-1:README.md
+          rclone copy README.md 4k2-1:
+          rclone delete 4k2-1:4k/README.md
+          rclone copy README.md 4k2-1:4k
+          rclone delete 4k3-1:README.md
+          rclone copy README.md 4k3-1:
+          rclone delete 4k3-1:4k/README.md
+          rclone copy README.md 4k3-1:4k
+
+      - name: Sync readme-2
+        run: |
+          rclone delete pub-2:README.md
+          rclone copy README.md pub-2:
+          rclone delete pub-2:rep/README.md
+          rclone copy README.md pub-2:rep
+          rclone delete ani-2:README.md
+          rclone copy README.md ani-2:
+          rclone delete ani-2:ani/README.md
+          rclone copy README.md ani-2:ani
+          rclone delete mov-2:README.md
+          rclone copy README.md mov-2:
+          rclone delete mov-2:mov/README.md
+          rclone copy README.md mov-2:mov
+          rclone delete doc-2:README.md
+          rclone copy README.md doc-2:
+          rclone delete doc-2:doc/README.md
+          rclone copy README.md doc-2:doc
+          rclone delete tlv1-2:README.md
+          rclone copy README.md tlv1-2:
+          rclone delete tlv1-2:tlv/README.md
+          rclone copy README.md tlv1-2:tlv
+          rclone delete tlv2-2:README.md
+          rclone copy README.md tlv2-2:
+          rclone delete tlv2-2:tlv/README.md
+          rclone copy README.md tlv2-2:tlv
+          rclone delete 4k1-2:README.md
+          rclone copy README.md 4k1-2:
+          rclone delete 4k1-2:4k/README.md
+          rclone copy README.md 4k1-2:4k
+          rclone delete 4k2-2:README.md
+          rclone copy README.md 4k2-2:
+          rclone delete 4k2-2:4k/README.md
+          rclone copy README.md 4k2-2:4k
+          rclone delete 4k3-2:README.md
+          rclone copy README.md 4k3-2:
+          rclone delete 4k3-2:4k/README.md
+          rclone copy README.md 4k3-2:4k
+  
+      - name: Sync readme-3
+        run: |
+          rclone delete pub-3:README.md
+          rclone copy README.md pub-3:
+          rclone delete pub-3:rep/README.md
+          rclone copy README.md pub-3:rep
+          rclone delete ani-3:README.md
+          rclone copy README.md ani-3:
+          rclone delete ani-3:ani/README.md
+          rclone copy README.md ani-3:ani
+          rclone delete mov-3:README.md
+          rclone copy README.md mov-3:
+          rclone delete mov-3:mov/README.md
+          rclone copy README.md mov-3:mov
+          rclone delete doc-3:README.md
+          rclone copy README.md doc-3:
+          rclone delete doc-3:doc/README.md
+          rclone copy README.md doc-3:doc
+          rclone delete tlv1-3:README.md
+          rclone copy README.md tlv1-3:
+          rclone delete tlv1-3:tlv/README.md
+          rclone copy README.md tlv1-3:tlv
+          rclone delete tlv2-3:README.md
+          rclone copy README.md tlv2-3:
+          rclone delete tlv2-3:tlv/README.md
+          rclone copy README.md tlv2-3:tlv
+          rclone delete 4k1-3:README.md
+          rclone copy README.md 4k1-3:
+          rclone delete 4k1-3:4k/README.md
+          rclone copy README.md 4k1-3:4k
+          rclone delete 4k2-3:README.md
+          rclone copy README.md 4k2-3:
+          rclone delete 4k2-3:4k/README.md
+          rclone copy README.md 4k2-3:4k
+          rclone delete 4k3-3:README.md
+          rclone copy README.md 4k3-3:
+          rclone delete 4k3-3:4k/README.md
+          rclone copy README.md 4k3-3:4k
+          
+      - name: Sync readme-tf
+        run: |
+          rclone delete pub-tf:README.md
+          rclone copy README.md pub-tf:
+          rclone delete pub-tf:rep/README.md
+          rclone copy README.md pub-tf:rep
+          rclone delete ani-tf:README.md
+          rclone copy README.md ani-tf:
+          rclone delete ani-tf:ani/README.md
+          rclone copy README.md ani-tf:ani
+          rclone delete mov-tf:README.md
+          rclone copy README.md mov-tf:
+          rclone delete mov-tf:mov/README.md
+          rclone copy README.md mov-tf:mov
+          rclone delete doc-tf:README.md
+          rclone copy README.md doc-tf:
+          rclone delete doc-tf:doc/README.md
+          rclone copy README.md doc-tf:doc
+          rclone delete tlv1-tf:README.md
+          rclone copy README.md tlv1-tf:
+          rclone delete tlv1-tf:tlv/README.md
+          rclone copy README.md tlv1-tf:tlv
+          rclone delete tlv2-tf:README.md
+          rclone copy README.md tlv2-tf:
+          rclone delete tlv2-tf:tlv/README.md
+          rclone copy README.md tlv2-tf:tlv
+          rclone delete 4k1-tf:README.md
+          rclone copy README.md 4k1-tf:
+          rclone delete 4k1-tf:4k/README.md
+          rclone copy README.md 4k1-tf:4k
+          rclone delete 4k2-tf:README.md
+          rclone copy README.md 4k2-tf:
+          rclone delete 4k2-tf:4k/README.md
+          rclone copy README.md 4k2-tf:4k
+          rclone delete 4k3-tf:README.md
+          rclone copy README.md 4k3-tf:
+          rclone delete 4k3-tf:4k/README.md
+          rclone copy README.md 4k3-tf:4k
+          
+      - name: Sync readme-kj
+        run: |
+          rclone delete pub-kj:README.md
+          rclone copy README.md pub-kj:
+          rclone delete pub-kj:rep/README.md
+          rclone copy README.md pub-kj:rep
+          
+      - name: Sync readme-bb
+        run: |
+          rclone delete pub-bb:README.md
+          rclone copy README.md pub-bb:
+          rclone delete pub-bb:rep/README.md
+          rclone copy README.md pub-bb:rep
+          rclone delete ani-bb:README.md
+          rclone copy README.md ani-bb:
+          rclone delete ani-bb:ani/README.md
+          rclone copy README.md ani-bb:ani
+          rclone delete mov-bb:README.md
+          rclone copy README.md mov-bb:
+          rclone delete mov-bb:mov/README.md
+          rclone copy README.md mov-bb:mov
+          rclone delete doc-bb:README.md
+          rclone copy README.md doc-bb:
+          rclone delete doc-bb:doc/README.md
+          rclone copy README.md doc-bb:doc
+          rclone delete tlv1-bb:README.md
+          rclone copy README.md tlv1-bb:
+          rclone delete tlv1-bb:tlv/README.md
+          rclone copy README.md tlv1-bb:tlv
+          rclone delete tlv2-bb:README.md
+          rclone copy README.md tlv2-bb:
+          rclone delete tlv2-bb:tlv/README.md
+          rclone copy README.md tlv2-bb:tlv
+          
+      - name: Sync readme-eu
+        run: |
+          rclone delete pub-eu:README.md
+          rclone copy README.md pub-eu:
+          rclone delete pub-eu:rep/README.md
+          rclone copy README.md pub-eu:rep
+          rclone delete ani-eu:README.md
+          rclone copy README.md ani-eu:
+          rclone delete ani-eu:ani/README.md
+          rclone copy README.md ani-eu:ani
+          rclone delete mov-eu:README.md
+          rclone copy README.md mov-eu:
+          rclone delete mov-eu:mov/README.md
+          rclone copy README.md mov-eu:mov
+          rclone delete doc-eu:README.md
+          rclone copy README.md doc-eu:
+          rclone delete doc-eu:doc/README.md
+          rclone copy README.md doc-eu:doc
+          rclone delete tlv1-eu:README.md
+          rclone copy README.md tlv1-eu:
+          rclone delete tlv1-eu:tlv/README.md
+          rclone copy README.md tlv1-eu:tlv
+          rclone delete tlv2-eu:README.md
+          rclone copy README.md tlv2-eu:
+          rclone delete tlv2-eu:tlv/README.md
+          rclone copy README.md tlv2-eu:tlv
+          
+      - name: Sync readme-rc
+        run: |
+          rclone delete pub-rc:README.md
+          rclone copy README.md pub-rc:
+          rclone delete pub-rc:rep/README.md
+          rclone copy README.md pub-rc:rep
+          rclone delete ani-rc:README.md
+          rclone copy README.md ani-rc:
+          rclone delete ani-rc:ani/README.md
+          rclone copy README.md ani-rc:ani
+          rclone delete mov-rc:README.md
+          rclone copy README.md mov-rc:
+          rclone delete mov-rc:mov/README.md
+          rclone copy README.md mov-rc:mov
+          rclone delete doc-rc:README.md
+          rclone copy README.md doc-rc:
+          rclone delete doc-rc:doc/README.md
+          rclone copy README.md doc-rc:doc
+          rclone delete tlv1-rc:README.md
+          rclone copy README.md tlv1-rc:
+          rclone delete tlv1-rc:tlv/README.md
+          rclone copy README.md tlv1-rc:tlv
+          rclone delete tlv2-rc:README.md
+          rclone copy README.md tlv2-rc:
+          rclone delete tlv2-rc:tlv/README.md
+          rclone copy README.md tlv2-rc:tlv
